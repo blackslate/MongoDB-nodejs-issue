@@ -285,3 +285,16 @@ topology
 writeConcern
 ```
 Running `this.db.removeAllListeners()` before setting `this.db = null` solved the issue. An alternative solution is to use `this.db.once("close", [function])`, so that the listener is removed automatically.
+
+#### getMethods function
+(source: [https://flaviocopes.com/how-to-list-object-methods-javascript/])
+```
+function getMethods (obj) {
+  let properties = new Set()
+  let currentObj = obj
+  do {
+    Object.getOwnPropertyNames(currentObj).map(item => properties.add(item))
+  } while ((currentObj = Object.getPrototypeOf(currentObj)))
+  return [...properties.keys()].filter(item => typeof obj[item] === 'function')
+}
+```
