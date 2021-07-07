@@ -2,7 +2,7 @@
 
 ## Create a bare-bones test app
 ```
-meteor create --react barebones && cd barebones
+meteor create --react deadpool && cd deadpool
 meteor npm install --save mongodb
 ```
 
